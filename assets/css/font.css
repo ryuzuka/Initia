@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "PilatWide";
+  font-weight: 300;
+  src: local("PilatWide-Regular"),
+    url("../font/PilatWide-Regular.woff2") format("woff2"),
+    url("../font/PilatWide-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PilatWide";
+  font-weight: 400;
+  src: local("PilatWide-Book"),
+    url("../font/PilatWide-Book.woff2") format("woff2"),
+    url("../font/PilatWide-Book.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PilatWide";
+  font-weight: 500;
+  src: local("PilatWide-DemiBold"),
+    url("../font/PilatWide-Demi.woff2") format("woff2"),
+    url("../font/PilatWide-DemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PilatWide";
+  font-weight: 600;
+  src: local("PilatWide-Bold"),
+    url("../font/PilatWide-Bold.woff2") format("woff2"),
+    url("../font/PilatWide-Bold.ttf") format("truetype");
+}
