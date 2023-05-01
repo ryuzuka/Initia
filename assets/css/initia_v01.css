@@ -193,7 +193,7 @@ header button {
   width: 0%;
   height: 2px;
   background-color: #fff;
-  transition: width 2s ease-in-out; /* transition 속성으로 width값이 변화할 때 애니메이션 효과를 줍니다. */
+  transition: width 0.5s ease-out; /* transition 속성으로 width값이 변화할 때 애니메이션 효과를 줍니다. */
 }
 
 .l2_list .list_item:hover:before {

@@ -45,11 +45,26 @@ textLines.forEach((textLine) => {
 
   function transform () {
     visualText.forEach((el, index) => {
-      let outX = (index % 2) ? -1.2 * visualText[index].clientWidth : window.innerWidth
-      let translateX = Math.round(outX / textTop[index] * scrollY)
+      let min = Math.round(-1.2 * visualText[index].clientWidth)
+      let max = Math.round(window.innerWidth)
+
+      let outX = (index % 2) ? min : max
+      let translateX = Math.ceil(outX / textTop[index] * scrollY)
+      if (translateX < min) {
+        translateX = min
+      } else if (translateX > max) {
+        translateX = max
+      }
+
+      let opacity = Math.ceil(-100 / (textTop[index] / 2) * scrollY + 100)
+      if (opacity < 0) {
+        opacity = 0
+      } else if (opacity > 100) {
+        opacity = 100
+      }
 
       el.style.transform = `translate3d(${translateX}px, 0px, 0px)`
+      el.style.opacity = opacity * 0.01
     })
   }
-
 })()
