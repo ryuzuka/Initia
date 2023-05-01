@@ -1,6 +1,9 @@
 .initia {
   background: #000;
   color: #fff;
+  width: 100%;
+  max-width: 1920px;
+  overflow-x: hidden;
 }
 header {
   width: 100%;
@@ -22,26 +25,34 @@ header button {
 .main_vi {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100vh;
+  text-align: center;
+  background: url(../image/ex/img_01_01.png) no-repeat 0px 95px;
 }
 .main_vi .main_vi_text {
   font-weight: 600;
-  font-size: 170px;
-  line-height: 218px;
+  font-size: 140px;
+  line-height: 170px;
   color: #fff;
 }
 .main_vi .main_vi_text > p {
   display: block;
   overflow: hidden;
+  font-weight: 700;
 }
-.main_vi .main_vi_text > p:nth-child(1) {
-  padding-left: 10.4688vw;
+.main_vi .main_vi_text > p.text_line_01 {
+  text-align: right;
+  font-weight: 800;
 }
-.main_vi .main_vi_text > p:nth-child(2) {
-  padding-left: 30.7292vw;
+.main_vi .main_vi_text > p.text_line_02 {
+  padding-right: 50px;
 }
-.main_vi .main_vi_text > p:nth-child(3) {
-  padding-left: 23.125vw;
+.main_vi .main_vi_text > p.text_line_03 {
+  padding-left: 180px;
+}
+.main_vi .main_vi_text > p.text_line_04 {
+  text-align: right;
 }
 .main_vi .main_vi_text .animate::before {
   content: "";
@@ -69,6 +80,7 @@ header button {
   justify-content: center;
   height: 100vh;
   padding: 0 100px;
+  background: url(../image/ex/img_01_02.png) no-repeat center center;
 }
 .section_01 .sec_tit {
   max-width: 1720px;
@@ -76,19 +88,18 @@ header button {
   font-style: normal;
   font-weight: 700;
   font-size: 60px;
-  line-height: 77px;
+  line-height: 80px;
   text-align: center;
   text-transform: uppercase;
   color: #fff;
 }
 .section_01 .sec_dec {
-  max-width: 1240px;
   margin: 0 auto;
-  padding-top: 40px;
+  padding-top: 34px;
   font-style: normal;
   font-weight: 300;
-  font-size: 25px;
-  line-height: 30px;
+  font-size: 24px;
+  line-height: 29px;
   text-align: center;
   color: #fff;
 }
@@ -97,9 +108,10 @@ header button {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background: url(../image/ex/img_01_03.png) no-repeat center center / auto 160%;
 }
 .section_02 .sec_tit {
-  font-weight: 600;
+  font-weight: 900;
   font-size: 68px;
   line-height: 87px;
   text-align: center;
@@ -107,16 +119,16 @@ header button {
 }
 .section_03 {
   height: 1082px;
-  padding: 100px 200px;
+  padding: 100px 200px 550px;
+  background: url(../image/ex/img_01_04.png) no-repeat right bottom;
 }
 .section_03 .sec_sub_tit {
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 60px;
+  font-weight: 900;
+  font-size: 80px;
+  line-height: 120px;
   color: #fff;
 }
 .section_03 .step_wrap {
-  padding: 120px 0 0;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -124,42 +136,34 @@ header button {
 }
 .section_03 .step_wrap .step_item {
   position: relative;
-  padding: 0 80px 50px;
+  margin-left: 150px;
 }
-.section_03 .step_wrap .step_item::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 100%;
-  background: #3f3f3f;
-}
-.section_03 .step_wrap .step_item:first-child::after {
-  display: none;
+.section_03 .step_wrap .step_item:first-child {
+  margin-left: 0;
 }
 .section_03 .step_wrap .num {
-  font-weight: 600;
-  font-size: 300px;
-  line-height: 385px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 410px;
+  line-height: 527px;
+  color: #131313;
 }
 .section_03 .step_wrap .step_title {
-  font-weight: 600;
-  font-size: 55px;
-  line-height: 71px;
-  padding-top: 22px;
-  white-space: nowrap;
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 67px;
+  position: absolute;
+  top: 330px;
 }
 .section_03 .step_wrap .step_desc {
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  padding-top: 50px;
 }
 .section_04 {
-  padding: 450px 200px;
+  padding: 0 200px;
   color: #fff;
+  background: url(../image/ex/img_01_05.png) no-repeat -35px 350px;
 }
 .section_04 .sec_dec {
   font-weight: 400;
@@ -167,59 +171,88 @@ header button {
   line-height: 29px;
 }
 .section_04 .sec_tit {
-  font-weight: 600;
-  font-size: 100px;
+  font-weight: 900;
+  font-size: 80px;
   line-height: 120px;
   padding-top: 34px;
 }
 .l2_list {
-  padding-top: 214px;
+  padding-top: 330px;
 }
 .l2_list .list_item {
+  position: relative; /* 아래 선을 absolute로 위치시키기 위해 relative 지정 */
   padding: 120px 0 80px;
   border-bottom: #3f3f3f 1px solid;
 }
-.l2_list .list_item .item_tit {
-  font-weight: 600;
-  font-size: 45px;
-  line-height: 58px;
+
+.l2_list .list_item:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition: width 2s ease-in-out; /* transition 속성으로 width값이 변화할 때 애니메이션 효과를 줍니다. */
 }
+
+.l2_list .list_item:hover:before {
+  width: 100%; /* 마우스 오버 시 width값이 100%로 채워집니다. */
+}
+
+.l2_list .list_item .item_tit {
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 67px;
+}
+
 .l2_list .list_item .item_desc {
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
+  padding-top: 18px;
 }
 
 .section_05 {
   padding: 426px 200px 0;
+  position: relative;
 }
 .section_05 .sec_company {
   font-weight: 500;
   font-size: 35px;
   line-height: 45px;
+  padding-bottom: 120px;
 }
 .section_05 .sec_tit {
-  padding-top: 180px;
   width: 1116px;
-  font-weight: 600;
-  font-size: 90px;
+  font-weight: 900;
+  font-size: 80px;
   line-height: 125px;
   text-transform: uppercase;
 }
 .section_05 .sec_desc {
-  padding-top: 50px;
+  padding-top: 180px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
 }
 .section_05 .sec_desc .desc_txt {
-  width: 600px;
+  width: 690px;
   padding-top: 20px;
   font-weight: 400;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 30px;
   text-align: right;
+  color: rgba(255, 255, 255, 0.65);
+}
+.section_05 .sec_img {
+  display: flex;
+  position: absolute;
+  top: 1390px;
+}
+.section_05 .sec_img p {
+  margin: 0 -35px;
 }
 .section_06 {
   padding: 760px 200px 0;
@@ -229,9 +262,9 @@ header button {
 .section_06 .sec_tit {
   margin-left: auto;
   width: 530px;
+  font-weight: 900;
   font-size: 80px;
   line-height: 100px;
-  font-weight: 600;
   padding-bottom: 88px;
   border-bottom: 1px solid #3f3f3f;
 }
@@ -240,42 +273,62 @@ header button {
   flex-direction: column;
 }
 .sdk_wrap .item_01 {
-  margin-top: -100px;
+  margin-top: -270px;
   margin-right: auto;
   width: 500px;
   text-align: right;
+  position: relative;
 }
 .sdk_wrap .item_02 {
-  margin-top: -150px;
+  margin-top: -520px;
   margin-left: auto;
   width: 500px;
   text-align: left;
+  position: relative;
+}
+.sdk_wrap .item_01 .vi_img {
+  position: absolute;
+  top: -247px;
+  left: -246px;
+}
+.sdk_wrap .item_02 .vi_img {
+  position: absolute;
+  top: 10px;
+  left: 244px;
 }
 .sdk_wrap .num {
-  font-weight: 600;
-  font-size: 250px;
-  line-height: 321px;
+  font-weight: 900;
+  font-size: 280px;
+  line-height: 360px;
+  color: #131313;
+  position: relative;
+  z-index: 1;
 }
 .sdk_wrap .item_tit {
-  padding-top: 60px;
-  font-weight: 500;
-  font-size: 45px;
-  line-height: 58px;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 67px;
 }
 .sdk_wrap .item_desc {
-  padding-top: 45px;
-  font-weight: 500;
+  padding-top: 64px;
+  font-weight: 400;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 30px;
+}
+.sdk_wrap .item_desc:nth-child(2) {
+  padding-top: 23px;
 }
 .section_07 {
   padding-top: 618px;
+  padding-bottom: 240px;
+
+  background: url(../image/ex/img_01_08.png) no-repeat center 450px;
 }
 .section_07 .sec_tit {
-  font-size: 76px;
+  font-weight: 900;
+  font-size: 80px;
   line-height: 100px;
   text-align: center;
-  font-weight: 600;
 }
 .section_07 .sec_desc {
   padding-top: 40px;
@@ -283,15 +336,16 @@ header button {
   font-size: 20px;
   line-height: 24px;
   text-align: center;
+  padding-bottom: 70px;
 }
 .section_07 .sec_logo {
-  padding-top: 70px;
-  -webkit-text-stroke: 2px #fff;
-  color: #000;
-  font-size: 331px;
-  line-height: 425px;
-  font-weight: 600;
-  letter-spacing: 0.27em;
+  font-weight: 900;
+  font-size: 400px;
+  line-height: 514px;
+  letter-spacing: 0.1em;
+
+  color: #131313;
+
   text-align: center;
 }
 @keyframes animate {
