@@ -1,14 +1,19 @@
+body {
+  background: #000;
+}
 .initia {
   background: #000;
   color: #fff;
   width: 100%;
   max-width: 1920px;
-  min-width: 1280px;
+  min-width: 1600px;
   overflow-x: hidden;
+  margin: 0 auto;
 }
 header {
   width: 100%;
   max-width: 1920px;
+  min-width: 1600px;
   position: fixed;
   display: flex;
   align-items: center;
