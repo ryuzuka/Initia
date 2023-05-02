@@ -28,6 +28,15 @@ header button {
   border: 0;
   cursor: pointer;
 }
+.container {
+  position: relative;
+  z-index: 2;
+}
+#canvas_wrap {
+  position: fixed;
+  top: 50px;
+  left: 0;
+}
 .main_vi {
   display: flex;
   align-items: center;
