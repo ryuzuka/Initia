@@ -3,6 +3,7 @@
   color: #fff;
   width: 100%;
   max-width: 1920px;
+  min-width: 1280px;
   overflow-x: hidden;
 }
 header {
@@ -35,6 +36,7 @@ header button {
   font-size: 140px;
   line-height: 170px;
   color: #fff;
+  position: fixed;
 }
 .main_vi .main_vi_text > p {
   display: block;
