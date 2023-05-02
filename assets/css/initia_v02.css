@@ -1,8 +1,8 @@
 body {
-  background: #000;
+  background: #0f0f10;
 }
 .initia {
-  background: #000;
+  background: #0f0f10;
   color: #fff;
   max-width: 1920px;
   min-width: 1600px;
@@ -23,7 +23,7 @@ header {
   justify-content: space-between;
   padding: 40px 70px;
   box-sizing: border-box;
-  background: #000;
+  background: #0f0f10;
   z-index: 10;
 }
 
