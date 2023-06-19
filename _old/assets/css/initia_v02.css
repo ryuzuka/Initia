@@ -215,16 +215,16 @@ header {
   line-height: 30px;
 }
 .section_l1_lobby .lobby_list .list_item:nth-child(1) {
-  background-image: url(../image/common/initia_lobby_01.png);
+  background-image: url(initia_lobby_01.png);
 }
 .section_l1_lobby .lobby_list .list_item:nth-child(2) {
-  background-image: url(../image/common/initia_lobby_02.png);
+  background-image: url(initia_lobby_02.png);
 }
 .section_l1_lobby .lobby_list .list_item:nth-child(3) {
-  background-image: url(../image/common/initia_lobby_03.png);
+  background-image: url(initia_lobby_03.png);
 }
 .section_l1_lobby .lobby_list .list_item:nth-child(4) {
-  background-image: url(../image/common/initia_lobby_04.png);
+  background-image: url(initia_lobby_04.png);
 }
 .section_sdk {
   padding-top: 470px;

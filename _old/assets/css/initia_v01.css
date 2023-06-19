@@ -43,7 +43,7 @@ header button {
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background: url(../image/ex/img_01_01.png) no-repeat 0px 95px;
+  background: url(img_01_01.png) no-repeat 0px 95px;
 }
 .main_vi .main_vi_text {
   font-weight: 600;
@@ -96,7 +96,7 @@ header button {
   justify-content: center;
   height: 100vh;
   padding: 0 100px;
-  background: url(../image/ex/img_01_02.png) no-repeat center center;
+  background: url(img_01_02.png) no-repeat center center;
 }
 .section_01 .sec_tit {
   max-width: 1720px;
@@ -124,7 +124,7 @@ header button {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: url(../image/ex/img_01_03.png) no-repeat center center / auto 160%;
+  background: url(img_01_03.png) no-repeat center center / auto 160%;
 }
 .section_02 .sec_tit {
   font-weight: 900;
@@ -136,7 +136,7 @@ header button {
 .section_03 {
   height: 1082px;
   padding: 100px 200px 550px;
-  background: url(../image/ex/img_01_04.png) no-repeat right bottom;
+  background: url(img_01_04.png) no-repeat right bottom;
 }
 .section_03 .sec_sub_tit {
   font-weight: 900;
@@ -179,7 +179,7 @@ header button {
 .section_04 {
   padding: 0 200px;
   color: #fff;
-  background: url(../image/ex/img_01_05.png) no-repeat -35px 350px;
+  background: url(img_01_05.png) no-repeat -35px 350px;
 }
 .section_04 .sec_dec {
   font-weight: 400;
@@ -338,7 +338,7 @@ header button {
   padding-top: 618px;
   padding-bottom: 240px;
 
-  background: url(../image/ex/img_01_08.png) no-repeat center 450px;
+  background: url(img_01_08.png) no-repeat center 450px;
 }
 .section_07 .sec_tit {
   font-weight: 900;
