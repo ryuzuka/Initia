@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Initia 0620</title>
+	<title>Initia 0621</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no">
@@ -11,59 +11,71 @@
 	<meta property="og:description" content="Initia">
 	<link rel="stylesheet" type="text/css" href="./src/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="./src/css/font.css">
+	<link rel="stylesheet" type="text/css" href="./src/css/swiper-bundle.min.css">
 	<link rel="stylesheet" type="text/css" href="./src/css/initia.css">
 	<link rel="stylesheet" type="text/css" href="./src/css/aos.css">
 	<script src="./src/js/jquery-3.3.1.min.js"></script>
 </head>
-<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
-<div id="initia-wrap" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+<body>
+<div id="initia-wrap">
+	<!--
+		인터랙션 필요한 영역(.motion 클래스 표시)에 .active 추가
+	-->
+
 	<header class="header">
 		<h1><a href="/"><img src="./src/img/logo.png" alt="Initia Logo"></a></h1>
 	</header>
 	<!-- //header -->
 
 	<main class="container">
-		<section class="section01">
-			<div class="video-box">
-				<video id="video01" autoplay="" loop muted playsinline>
-					<source src="./src/video/video01.mp4" type="video/mp4">
-				</video>
-			</div>
+		<div class="video-box fixed-video01">
+			<video id="video01" autoplay loop muted playsinline>
+				<source src="./src/video/video01.mp4" type="video/mp4">
+			</video>
+		</div>
+		
+		<div class="swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<section class="section01">
+						<div class="txt-box">
+							<h2>
+								<span class="motion delay01">Acclerating</span> <span class="motion delay02">Web3</span> <span class="motion delay03">Adoption</span>
+							</h2>
+						</div>
+					</section>
+				</div>
 
-			<div class="txt-box">
-				<h2>
-					<span class="animate">Acclerating</span> <span class="animate">Web3</span> <span class="animate">Adoption</span>
-				</h2>
-			</div>
-		</section>
-		<!-- //section01 -->
+				<div class="swiper-slide">
+					<section class="section02">
+						<div class="txt-box">
+							<h2>
+								<span class="motion delay01">Web3 is complicated</span><br>
+								<span class="motion delay02">for both users and developers.</span>
+							</h2>
+							<p>
+								<span class="motion delay03">Developers need scalable and interoperable infrastructure</span><br>
+								<span class="motion delay04">to empower decentralized applications and economies.</span>
+							</p>
+							<p>
+								<span class="motion delay05">For crypto to reach mass adoption, users need simple touchpoints to connect to Web3.</span>
+							</p>
+						</div>
+					</section>
+				</div>
 
-		<section class="section02">
-			<div class="txt-box">
-				<h2>
-					<span class="aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease" data-aos-offset="300" data-aos-duration="300" data-aos-delay="100">Web3 is complicated</span><br>
-					<span class="aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease" data-aos-offset="300" data-aos-duration="300" data-aos-delay="200">for both users and developers.</span>
-				</h2>
-				<p>
-					<span class="aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease" data-aos-offset="300" data-aos-duration="300" data-aos-delay="300">Developers need scalable and interoperable infrastructure</span><br>
-					<span class="aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease" data-aos-offset="300" data-aos-duration="300" data-aos-delay="400">to empower decentralized applications and economies.</span>
-				</p>
-				<p>
-					<span class="aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease" data-aos-offset="300" data-aos-duration="300" data-aos-delay="500">For crypto to reach mass adoption, users need simple touchpoints to connect to Web3.</span>
-				</p>
+				<div class="swiper-slide">
+					<section class="section section03">
+						<div class="txt-box">
+							<h2>
+								<span class="motion delay01">Initia provides everything needed</span>
+								<span class="motion delay02">to smoothly interact and build in Web3.</span>
+							</h2>
+						</div>
+					</section>
+				</div>
 			</div>
-		</section>
-		<!-- //section02 -->
-
-		<section class="section section03">
-			<div class="txt-box">
-				<h2>
-					<span class="aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease" data-aos-duration="500" data-aos-delay="200">Initia provides everything needed</span>
-					<span class="aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease" data-aos-duration="500" data-aos-delay="400">to smoothly interact and build in Web3.</span>
-				</h2>
-			</div>
-		</section>
-		<!-- //section03 -->
+		</div>
 
 		<section class="section section04">
 			<div class="video-box">
@@ -281,9 +293,111 @@
 </div>
 <!-- //wrap -->
 
+<script src="./src/js/swiper-bundle.min.js"></script>
 <script src="./src/js/aos.js"></script><!-- aos@2.3.1 -->
 <script>
 	AOS.init();
+
+	var scrollDir = 'down',
+		isSlide = false;
+		
+	// scroll up/down 시 slide 이동
+	function slide(scrollDir) {
+		if (isSlide) {
+			return;
+		}
+
+		if (scrollDir === 'up') {
+			swiper.slidePrev();
+		} else if (scrollDir === 'down') {
+			swiper.slideNext();
+		}
+	}
+
+	// scroll 시 up/down 체크
+	function setWheel() {
+		window.addEventListener('wheel', wheel, {
+			passive: false,
+		});
+
+		function wheel(e) {
+			var delta = e.deltaY;
+
+			if (!isSlide && Math.abs(delta) > 10) {
+				var _delta = e.deltaY;
+
+				if (_delta > 0) {
+					scrollDir = 'down';
+				} else {
+					scrollDir = 'up';
+				}
+
+				slide(scrollDir);
+			}
+		}
+	}
+
+	// section01 ~ 03 swiper
+	var swiper = new Swiper('.swiper', {
+		direction: 'vertical',
+		slidesPerView: '1',
+		preventInteractionOnTransition: true,
+		parallax: true,
+		speed: 700,
+		simulateTouch: false,
+		on: {
+			init: function() {
+				$('.motion').addClass('active');
+			},
+			activeIndexChange: function() {
+				$('.motion').removeClass('active');
+				setTimeout(function() {
+					$('.motion').addClass('active');
+				}, 100);
+			},
+			slideChange: function slideChange() {
+				isSlide = true;
+			},
+			transitionEnd: function transitionEnd() {
+				isSlide = false;
+			}
+		}
+    });
+
+	function activeHeightSet() {
+		var activeHt = $(window).height();
+		// eventActiveHt(activeHt);
+		scrollUp();
+	}
+
+	function scrollUp() {
+		$("body, html").stop(true).animate({
+			scrollTop: "0",
+		}, 1000);
+	}
+
+	// function eventActiveHt(activeHt) {
+	// 	$(".swiper-container").stop(true).animate({}, 100);
+	// }
+
+	swiper.on("slideChangeTransitionStart", activeHeightSet);
+
+	setWheel();
+
+	// motion (시안 motion)
+	// let $motion = document.getElementsByClassName('motion');
+	// let documentH = document.documentElement.clientHeight;
+	
+	// for (let key in $motion) {
+	// 	if ($motion[key].getBoundingClientRect) {
+	// 		let clientRect = $motion[key].getBoundingClientRect()
+	// 		if (documentH > clientRect.top + clientRect.height / 2) {
+	// 			$motion[key].classList.add('active')
+	// 		} else {
+	// 			$motion[key].classList.remove('active')
+	// 		}
+	// 	}
+	// }
 	
 	$(window).on('scroll', function(){
 		var headerHeight = $('header').height();
@@ -297,60 +411,40 @@
 		var sec07Top = $('.section07').offset().top;
 		var sec08Top = $('.section08').offset().top;
 
-		if(0 <= st && st < (sec02Top - 200)) {
-			$('.section01 h2 > span').addClass('animate');
-		} else {
-			$('.section01 h2 > span').removeClass('animate');
-		}
-
-		if(0 <= st && st < (sec04Top - 600)) {
-			$('.section01 .video-box').css('opacity', 1);
-			$container.addClass('fixedVideo01');
-		} else {
-			$('.section01 .video-box').css('opacity', 0);
-			setTimeout(function() {
-				$container.removeClass('fixedVideo01');
-			}, 200);
-		}
-
+		// section04 영역에서만 video fixed
 		if((sec04Top - 200) <= st && st < (sec05Top - 400)) {
 			$('.section04 .video-box').css('opacity', 1);
-			$container.addClass('fixedVideo04');
+			$('.section04').addClass('fixed');
 		} else {
 			$('.section04 .video-box').css('opacity', 0);
 			setTimeout(function() {
-				$container.removeClass('fixedVideo04');
+				$('.section04').removeClass('fixed');
 			}, 200);
 		}
 
+		// section05 영역에서만 video fixed
 		if((sec05Top - 200) <= st && st < (sec06Top - 400)) {
 			$('.section05 .video-box').css('opacity', 1);
-			$container.addClass('fixedVideo05');
+			$('.section05').addClass('fixed');
 		} else {
 			$('.section05 .video-box').css('opacity', 0);
 			setTimeout(function() {
-				$container.removeClass('fixedVideo05');
+				$('.section05').removeClass('fixed');
 			}, 200);
 		}
 
+		// section0 영역에서만 video fixed
 		if(sec06Top <= st && st < (sec07Top - 500)) {
 			$('.section06 .video-box').css('opacity', 1);
-			$container.addClass('fixedVideo06');
+			$('.section06').addClass('fixed');
 		} else {
 			$('.section06 .video-box').css('opacity', 0);
 			setTimeout(function() {
-				$container.removeClass('fixedVideo06');
+				$('.section06').removeClass('fixed');
 			}, 200);
 		}
 
-		var sec05TxtTop = $('.section05 .txt-box').offset().top - headerHeight;
-		var sec05TxtH = $('.section05 .txt-box').height();
-		var sec05Chk = sec05TxtTop + sec05TxtH - 100;
-		var sec06TxtTop = $('.section06 .txt-box').offset().top - headerHeight;
-		var sec06TxtH = $('.section06 .txt-box').height();
-		var sec06Chk = sec06TxtTop + sec06TxtH - 100;
-
-		//영상 재생 제어
+		// 영상 재생 제어 (멈춰있다가 해당 영역 진입 시 play)
 		if((sec04Top - 300) <= st && st < (sec05Top - 300)) {
 			video05 = document.getElementById("video04");
 			$('.section04').addClass('play').siblings().removeClass('play');
@@ -388,6 +482,7 @@
 		}
 	});
 
+	// section04 video loop
 	document.getElementById("video04").addEventListener("timeupdate", function() {
 		video04 = document.getElementById("video04");
 		if (video04.currentTime > 11) {
@@ -397,6 +492,7 @@
 		}
 	});
 
+	// section05 video loop
 	document.getElementById("video05").addEventListener("timeupdate", function() {
 		video05 = document.getElementById("video05");
 		if (video05.currentTime > 11) {
@@ -406,6 +502,7 @@
 		}
 	});
 
+	// section06 video loop
 	document.getElementById("video06").addEventListener("timeupdate", function() {
 		video06 = document.getElementById("video06");
 		if (video06.currentTime > 11) {
@@ -415,6 +512,7 @@
 		}
 	});
 
+	// section07 video loop
 	document.getElementById("video07").addEventListener("timeupdate", function() {
 		video07 = document.getElementById("video07");
 		if (video07.currentTime > 11) {
@@ -424,6 +522,7 @@
 		}
 	});
 
+	// section08 video loop
 	document.getElementById("video08").addEventListener("timeupdate", function() {
         video08 = document.getElementById("video08");
         if (video08.currentTime > 11) {
