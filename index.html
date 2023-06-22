@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Initia 0621</title>
+	<title>Initia</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no">
@@ -14,7 +14,11 @@
 	<link rel="stylesheet" type="text/css" href="./src/css/swiper-bundle.min.css">
 	<link rel="stylesheet" type="text/css" href="./src/css/initia.css">
 	<link rel="stylesheet" type="text/css" href="./src/css/aos.css">
-	<script src="./src/js/jquery-3.3.1.min.js"></script>
+	
+	<script src="src/libs/jquery-3.3.1.min.js"></script>
+	<script src="src/libs/gsap.min.js"></script>
+	<script src="src/libs/swiper-bundle.min.js"></script>
+	<script src="src/libs/aos.js"></script>
 </head>
 <body>
 <div id="initia-wrap">
@@ -29,7 +33,7 @@
 
 	<main class="container">
 		<div class="video-box fixed-video01">
-			<video id="video01" autoplay loop muted playsinline>
+			<video id="video01" loop muted playsinline>
 				<source src="./src/video/video01.mp4" type="video/mp4">
 			</video>
 		</div>
@@ -293,10 +297,23 @@
 </div>
 <!-- //wrap -->
 
-<script src="./src/js/swiper-bundle.min.js"></script>
-<script src="./src/js/aos.js"></script><!-- aos@2.3.1 -->
+<script src="./src/js/plugin/index.js"></script>
+<script src="./src/js/plugin/blockScroll.js"></script>
+<script src="./src/js/plugin/transform.js"></script>
+<script src="./src/js/plugin/swipe.js"></script>
+
+<script src="./src/js/Initia.js"></script>
 <script>
+	window.addEventListener('DOMContentLoaded', e => {
+		window.Initia.init()
+	})
+
+let Initia = function () {
+	
+	$('video').css('border', '1px solid red')
 	AOS.init();
+	
+	return
 
 	var scrollDir = 'down',
 		isSlide = false;
@@ -531,6 +548,8 @@
             video08.currentTime = 5.4;
         }
     });
+}
+
 </script>
 </body>
 </html>
