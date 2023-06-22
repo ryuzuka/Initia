@@ -24,7 +24,7 @@ section {z-index:10; position:relative;}
 .motion.delay06 {animation-delay:1.2s;}
 .video-box {position:absolute; top:0; left:calc(50% - 48rem); transition:opacity .3s;}
 .video-box video {width:96rem; margin:0 auto;}
-.video-box.fixed-video01 {overflow:hidden; position:fixed; top:0; left:auto; width:100%; max-width:1920px; height:100vh; text-align:center;}
+.video-box.fixed-video01 {overflow:hidden; position:fixed; top:0; left:auto; width:100%; max-width:1920px; text-align:center;}
 
 .section.fixed .video-box {position:fixed; top:0;}
 .section04.fixed .video-box,
