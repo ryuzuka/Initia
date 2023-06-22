@@ -24,18 +24,16 @@ section {position:relative;}
 .motion.delay06 {animation-delay:1.2s;}
 .video-box {position:absolute; top:0; left:calc(50% - 48rem); transition:opacity .3s;}
 .video-box video {width:96rem; margin:0 auto;}
-.video-box.fixed-video01 {overflow:hidden; position:fixed; top:13.5rem; left:auto; width:100%; max-width:1920px; height:100vh; text-align:center; background-color:#000;}
+.video-box.fixed-video01 {overflow:hidden; position:fixed; top:0; left:auto; width:100%; max-width:1920px; height:100vh; text-align:center; background-color:#000;}
 
-.section.fixed .video-box {position:fixed; top:13.5rem;}
+.section.fixed .video-box {position:fixed; top:0;}
 .section04.fixed .video-box,
 .section06.fixed .video-box {left:50%; right:auto;}
 .section05.fixed .video-box,
 .section07.fixed .video-box {right:50%; left:auto;}
 
-.swiper,
-.swiper-wrapper,
-.swiper .swiper-slide {height:100vh;}
-.swiper section {display:flex; justify-content:center; align-items:end; width:100%; height:100%; padding:13.5rem 0 40rem;}
+/* .swiper {height:100vh;} */
+.swiper section {display:flex; justify-content:center; align-items:end; width:100%; height:100vh; padding:0 0 40rem;}
 .swiper section span {opacity:0;}
 
 .swiper .section01 {/*padding:53rem 0 28rem;*/ background-color:transparent;}
