@@ -11,7 +11,6 @@
 	<meta property="og:description" content="Initia">
 	<link rel="stylesheet" type="text/css" href="./src/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="./src/css/font.css">
-	<link rel="stylesheet" type="text/css" href="./src/css/swiper-bundle.min.css">
 	<link rel="stylesheet" type="text/css" href="./src/css/initia.css">
 	<link rel="stylesheet" type="text/css" href="./src/css/aos.css">
 	
@@ -39,46 +38,38 @@
 		</div>
 		
 		<div class="swiper">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<section class="section01">
-						<div class="txt-box">
-							<h2>
-								<span class="motion delay01">Acclerating</span> <span class="motion delay02">Web3</span> <span class="motion delay03">Adoption</span>
-							</h2>
-						</div>
-					</section>
+			<section class="section01">
+				<div class="txt-box">
+					<h2>
+						<span class="motion delay01">Acclerating</span> <span class="motion delay02">Web3</span> <span class="motion delay03">Adoption</span>
+					</h2>
 				</div>
+			</section>
 
-				<div class="swiper-slide">
-					<section class="section02">
-						<div class="txt-box">
-							<h2>
-								<span class="motion delay01">Web3 is complicated</span><br>
-								<span class="motion delay02">for both users and developers.</span>
-							</h2>
-							<p>
-								<span class="motion delay03">Developers need scalable and interoperable infrastructure</span><br>
-								<span class="motion delay04">to empower decentralized applications and economies.</span>
-							</p>
-							<p>
-								<span class="motion delay05">For crypto to reach mass adoption, users need simple touchpoints to connect to Web3.</span>
-							</p>
-						</div>
-					</section>
+			<section class="section02">
+				<div class="txt-box">
+					<h2>
+						<span class="motion delay01">Web3 is complicated</span><br>
+						<span class="motion delay02">for both users and developers.</span>
+					</h2>
+					<p>
+						<span class="motion delay03">Developers need scalable and interoperable infrastructure</span><br>
+						<span class="motion delay04">to empower decentralized applications and economies.</span>
+					</p>
+					<p>
+						<span class="motion delay05">For crypto to reach mass adoption, users need simple touchpoints to connect to Web3.</span>
+					</p>
 				</div>
+			</section>
 
-				<div class="swiper-slide">
-					<section class="section section03">
-						<div class="txt-box">
-							<h2>
-								<span class="motion delay01">Initia provides everything needed</span>
-								<span class="motion delay02">to smoothly interact and build in Web3.</span>
-							</h2>
-						</div>
-					</section>
+			<section class="section section03">
+				<div class="txt-box">
+					<h2>
+						<span class="motion delay01">Initia provides everything needed</span>
+						<span class="motion delay02">to smoothly interact and build in Web3.</span>
+					</h2>
 				</div>
-			</div>
+			</section>
 		</div>
 
 		<section class="section section04">
@@ -450,7 +441,7 @@ let Initia = function () {
 			}, 200);
 		}
 
-		// section0 영역에서만 video fixed
+		// section06 영역에서만 video fixed
 		if(sec06Top <= st && st < (sec07Top - 500)) {
 			$('.section06 .video-box').css('opacity', 1);
 			$('.section06').addClass('fixed');

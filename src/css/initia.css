@@ -6,8 +6,8 @@ body.block-scroll {overflow:hidden; height: 100%;}
 #initia-wrap {width:100%; max-width:1920px; margin:0 auto;}
 
 /* header */
-header {z-index:1000; position:fixed; width:100%; max-width:1920px; background-color:#000;}
-header h1 {width:12.6rem; margin:4rem 0 4rem 7rem;}
+header {z-index:1000; position:fixed; width:100%; max-width:1920px;}
+header h1 {width:12.6rem; margin:4rem 0 4rem 6rem;}
 
 /* container */
 .container {position:relative; color:#fff;}
