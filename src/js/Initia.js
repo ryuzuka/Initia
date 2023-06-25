@@ -112,13 +112,13 @@ window.Initia = (function (_gsap) {
       slideIndex = 3
       slideSection('up')
 
-      $videoBox.forEach((el, idx) => {
-        let $video = el.querySelector('video')
-        isVideoSection[idx] = false
-        _gsap.to($video.parentElement, 0.2, {opacity: 0, ease: Expo.easeOut, onComplete () {
-          $video.pause()
-        }})
-      })
+      // $videoBox.forEach((el, idx) => {
+      //   let $video = el.querySelector('video')
+      //   isVideoSection[idx] = false
+      //   _gsap.to($video.parentElement, 0.2, {opacity: 0, ease: Expo.easeOut, onComplete () {
+      //     $video.pause()
+      //   }})
+      // })
 
     } else {
       if (sectionY[3] <= st && st <= sectionY[4]) {
