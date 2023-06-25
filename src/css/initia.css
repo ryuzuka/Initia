@@ -15,6 +15,7 @@ header h1 {width:12.6rem; margin:4rem 0 4rem 6rem;}
 section {z-index:10; position:relative;}
 .txt-box {position:relative;}
 .txt-box span {display:inline-block;}
+.motion {opacity: 0}
 .motion.active {animation:fadeup 1s ease forwards;}
 .motion.delay01 {animation-delay:0.2s;}
 .motion.delay02 {animation-delay:0.4s;}

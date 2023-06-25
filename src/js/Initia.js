@@ -1,18 +1,21 @@
 /** Initia.js ********************************************************************************************************** */
 window.Initia = (function (_gsap) {
   let $swiper = document.querySelector('.swiper')
+  let $section = document.querySelectorAll('section')
   let $scrollSection = document.querySelector('.section04')
   let $topVideo = document.querySelector('#video01')
   let $videoBox = document.querySelectorAll('section .video-box')
 
+  let scrollDir = ''
   let sectionY = []
   let slideIndex = 0
   let slideLength = $swiper.getElementsByTagName('section').length
   let isSlide = true
+  let isVideoSection = [false, false, false, false, false, false, false, false]
 
-  function slideSection (scrollDir) {
+  function slideSection (dir) {
     isSlide = true
-    if (scrollDir === 'down') {
+    if (dir === 'down') {
       slideIndex++
       if (slideIndex > slideLength) {
         slideIndex = slideLength
@@ -22,7 +25,7 @@ window.Initia = (function (_gsap) {
 
       }
 
-    } else if (scrollDir === 'up') {
+    } else if (dir === 'up') {
       slideIndex--
       if (slideIndex < 0) {
         slideIndex = 0
@@ -32,7 +35,6 @@ window.Initia = (function (_gsap) {
       }
     }
 
-    console.log(slideIndex, sectionY[slideIndex])
     _gsap.to('html, body', 1, {
       scrollTop: sectionY[slideIndex],
       ease: Cubic.easeOut,
@@ -51,8 +53,8 @@ window.Initia = (function (_gsap) {
   }
 
   function activeSection (index) {
-    let $section = $swiper.querySelectorAll('section')
-    $section.forEach((el, idx) => {
+    let $swiperSection = $swiper.querySelectorAll('section')
+    $swiperSection.forEach((el, idx) => {
       if (index === idx) {
         el.querySelectorAll('.motion').forEach(el=> {
           el.classList.add('active')
@@ -78,73 +80,82 @@ window.Initia = (function (_gsap) {
     }
   }
 
-  let isSection = [false, false, false, false, false, false, false]
+  function activeVideoSection (index) {
+    console.log('slideIndex: ', slideIndex, isVideoSection)
+    $section.forEach(($sect, idx) => {
+      let $video = $sect.querySelector('video')
+      if (index === idx) {
+        $sect.querySelectorAll('.motion').forEach((el, idx) => {
+          setInterval(() => el.classList.add('active'), 150 * idx)
+        })
+        if ($video) {
+          _gsap.to($video.parentElement, 0.5, {opacity: 1, ease: Cubic.easeOut})
+          $video.play()
+        }
+      }
+    })
+  }
+
+  let scrollTop = 0
 
   function onScroll (e) {
-    let st = Math.floor(e.currentTarget.scrollY)
+    let dir = scrollTop < scrollY ? 'down' : 'up'
+    scrollTop = e.currentTarget.scrollY
+    let st = Math.floor(e.currentTarget.scrollY + ((dir === 'down') ? (window.innerHeight / 1.6) : 0))
+
     if (st < $scrollSection.offsetTop) {
       document.body.blockScroll('block')
       document.body.bodySwipe('on')
       window.removeEventListener('scroll', onScroll)
       window.addEventListener('wheel', onWheel)
+
       slideIndex = 3
+      $videoBox.forEach((el, idx) => {
+        let $video = el.querySelector('video')
+        isVideoSection[idx] = false
+        _gsap.to($video.parentElement, 0.5, {opacity: 0, ease: Expo.easeOut, onComplete () {
+          $video.pause()
+        }})
+      })
       slideSection('up')
     } else {
       if (sectionY[3] <= st && st <= sectionY[4]) {
-        if (!isSection[3]) {
+        if (!isVideoSection[3]) {
           slideIndex = 3
-          isSection = [false, false, false, true, false, false, false]
-          // $videoBox.forEach((el, idx) => {
-          //   console.log(slideIndex, idx, slideIndex -3)
-          //   if (idx === slideIndex - 3) {
-          //     _gsap.to(el, 0.3, {opacity: 1})
-          //   } else {
-          //     _gsap.to(el, 0.3, {opacity: 0})
-          //   }
-          // })
-          console.log('slideIndex: ', slideIndex, isSection)
+          isVideoSection = [false, false, false, true, false, false, false, false]
+          activeVideoSection(slideIndex)
+          _gsap.to(document.querySelector('#video05').parentElement, 0.15, {opacity: 0, ease: Expo.easeOut})
         }
       } else if (sectionY[4] <= st && st <= sectionY[5]) {
-        if (!isSection[4]) {
+        if (!isVideoSection[4]) {
           slideIndex = 4
-          isSection = [false, false, false, false, true, false, false]
-          // $videoBox.forEach((el, idx) => {
-          //   console.log(slideIndex, idx, slideIndex -3)
-          //   if (idx === slideIndex - 3) {
-          //     _gsap.to(el, 0.3, {opacity: 1})
-          //   } else {
-          //     _gsap.to(el, 0.3, {opacity: 0})
-          //   }
-          // })
-          console.log('slideIndex: ', slideIndex, isSection)
+          isVideoSection = [false, false, false, false, true, false, false, false]
+          activeVideoSection(slideIndex)
+          _gsap.to(document.querySelector('#video04').parentElement, 0.15, {opacity: 0, ease: Expo.easeOut})
+          _gsap.to(document.querySelector('#video06').parentElement, 0.15, {opacity: 0, ease: Expo.easeOut})
         }
       } else if (sectionY[5] <= st && st <= sectionY[6]) {
-        if (!isSection[5]) {
+        if (!isVideoSection[5]) {
           slideIndex = 5
-          isSection = [false, false, false, false, false, true, false]
-          // $videoBox.forEach((el, idx) => {
-          //   console.log(slideIndex, idx, slideIndex -3)
-          //   if (idx === slideIndex - 3) {
-          //     _gsap.to(el, 0.3, {opacity: 1})
-          //   } else {
-          //     _gsap.to(el, 0.3, {opacity: 0})
-          //   }
-          // })
-          console.log('slideIndex: ', slideIndex, isSection)
+          isVideoSection = [false, false, false, false, false, true, false, false]
+          activeVideoSection(slideIndex)
+          _gsap.to(document.querySelector('#video05').parentElement, 0.15, {opacity: 0, ease: Expo.easeOut})
+          _gsap.to(document.querySelector('#video07').parentElement, 0.15, {opacity: 0, ease: Expo.easeOut})
+          _gsap.to(document.querySelector('#video08').parentElement, 0.15, {opacity: 0, ease: Expo.easeOut})
         }
       } else if (sectionY[6] <= st && st <= sectionY[7]) {
-        if (!isSection[6]) {
+        if (!isVideoSection[6]) {
           slideIndex = 6
-          isSection = [false, false, false, false, false, false, true]
-          // $videoBox.forEach((el, idx) => {
-          //   console.log(slideIndex, idx, slideIndex -3)
-          //   if (idx === slideIndex - 3 || idx === 4) {
-          //     _gsap.to(el, 0.3, {opacity: 1})
-          //   } else {
-          //     _gsap.to(el, 0.3, {opacity: 0})
-          //   }
-          // })
-          console.log('slideIndex: ', slideIndex, isSection)
+          isVideoSection = [false, false, false, false, false, false, true, false]
+          activeVideoSection(slideIndex)
+          _gsap.to(document.querySelector('#video06').parentElement, 0.15, {opacity: 0, ease: Expo.easeOut})
+        }
+      }
+      if ((st + window.innerHeight / 4) > sectionY[7]) {
+        if (!isVideoSection[7]) {
+          slideIndex = 7
+          isVideoSection = [false, false, false, false, false, false, false, true]
+          activeVideoSection(slideIndex)
         }
       }
     }
@@ -161,8 +172,6 @@ window.Initia = (function (_gsap) {
 
       window.dispatchEvent(new CustomEvent('resize', {detail: {}}))
 
-      AOS.init();
-      $topVideo.play()
       activeSection(slideIndex)
     },
     setEvent () {
@@ -190,22 +199,21 @@ window.Initia = (function (_gsap) {
         move () {},
         up (dir, dis) {
           if (isSlide) return
-
           slideSection(dir > 0 ? 'down' : 'up')
         }
       })
     },
     setVideo () {
       let videoLength = $videoBox.length
+      $topVideo.play()
       $videoBox.forEach((el, idx) => {
-        el.querySelector('video').play()
-        el.style.opacity = 1
-        // if (idx < videoLength - 1) {
-        //   Object.assign(el.style, {
-        //     position: 'fixed',
-        //     top: (window.innerHeight - el.offsetHeight) / 2 + 'px'
-        //   })
-        // }
+        el.style.opacity = 0
+        if (idx < videoLength - 2) {
+          Object.assign(el.style, {
+            position: 'fixed',
+            top: (window.innerHeight - el.offsetHeight) / 2 + 'px'
+          })
+        }
       })
     }
   }
