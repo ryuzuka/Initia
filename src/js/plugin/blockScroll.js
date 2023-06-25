@@ -2,7 +2,7 @@
 let blockScroll = null
 let blockScrollEvent = null
 
-Object.assign(Window.prototype, {
+Object.assign(HTMLBodyElement.prototype, {
   blockScroll(method = 'block') {
     if (!method) method = 'scroll'
     blockScroll = blockScroll || new BlockScroll('block-scroll')

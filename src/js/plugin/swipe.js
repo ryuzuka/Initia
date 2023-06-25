@@ -1,41 +1,21 @@
 /** swipe.js ********************************************************************************************************** */
-;($ => {
-  let pluginName = 'swipe'
+;(() => {
+  let PLUGIN_NAME = 'swipe'
 
-  $.extend({
-    bodySwipe: function (options = {}, value) {
-      let $documentBody= $(document).find('body')
-
+  Object.assign(HTMLBodyElement.prototype, {
+    bodySwipe (options = {}, value) {
       if (typeof options === 'string') {
-        $.plugin.call($documentBody, options, value)
+        return PLUGIN.call(this, options, value)
       } else {
-        options.direction = options.direction || 'vertical'
-        $documentBody.swipe(options)
+        PLUGIN.add(this, new Swipe(this, options), PLUGIN_NAME)
       }
-      return this
-    }
-  })
-
-  $.fn.extend({
-    swipe: function (options = {}, value) {
-      if (typeof options === 'string') {
-        $.plugin.call(this, options, value)
-      } else {
-        this.each((_index, _el) => {
-          if (!$(_el).attr('applied-plugin')) {
-            options.direction = options.direction || 'horizontal'
-            $.plugin.add($(_el), pluginName, new Swipe($(_el), options))
-          }
-        })
-      }
-      return this
     }
   })
 
   class Swipe {
     constructor ($this, options) {
-      this.target = $this.get(0)
-      this.direction = options.direction // horizontal, vertical
+      this.target = $this
+      this.direction = options.direction || 'vertical' // horizontal, vertical
       this.callback = {
         down: options.down,
         move: options.move,
@@ -83,6 +63,7 @@
             this.DOWNX = point.clientY
             this.DOWNY = point.clientX
           }
+
 
           if (this.callback.down) {
             this.callback.down()
@@ -134,5 +115,5 @@
       this.target.removeEventListener(this.UP_EV, this.eventHandler.up)
     }
   }
-})(window.jQuery)
+})()
 /** ****************************************************************************************************************** */
