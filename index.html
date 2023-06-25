@@ -15,10 +15,9 @@
 	<link rel="stylesheet" type="text/css" href="./src/css/aos.css">
 	
 	<script src="src/libs/gsap.min.js"></script>
-	<script src="src/libs/swiper-bundle.min.js"></script>
 	<script src="src/libs/aos.js"></script>
 </head>
-<body style="background-color: #000">
+<body>
 <div id="initia-wrap">
 	<!--
 		인터랙션 필요한 영역(.motion 클래스 표시)에 .active 추가
@@ -73,7 +72,7 @@
 
 		<section class="section section04">
 			<div class="video-box">
-				<video id="video04" loop muted playsinline>
+				<video id="video04" muted playsinline>
 					<source id="video04Src" src="./src/video/video04.mp4" type="video/mp4">
 				</video>
 			</div>
@@ -144,7 +143,7 @@
 
 		<section class="section section05">
 			<div class="video-box">
-				<video id="video05" loop muted playsinline>
+				<video id="video05" muted playsinline>
 					<source id="video05Src" src="./src/video/video05.mp4" type="video/mp4">
 				</video>
 			</div>
@@ -189,7 +188,7 @@
 
 		<section class="section section06">
 			<div class="video-box">
-				<video id="video06" loop muted playsinline>
+				<video id="video06" muted playsinline>
 					<source id="video06Src" src="./src/video/video06.mp4#t=5.3" type="video/mp4">
 				</video>
 			</div>
@@ -232,7 +231,7 @@
 
 		<section class="section section07">
 			<div class="video-box">
-				<video id="video07" loop muted playsinline>
+				<video id="video07" muted playsinline>
 					<source id="video07Src" src="./src/video/video07.mp4" type="video/mp4">
 				</video>
 			</div>
@@ -260,7 +259,7 @@
 		<section class="section section08">
 			<p id="playtime"></p>
 			<div class="video-box">
-				<video id="video08" loop muted playsinline>
+				<video id="video08" muted playsinline>
 					<source id="video08Src" src="./src/video/video08.mp4" type="video/mp4">
 				</video>
 			</div>
@@ -286,267 +285,15 @@
 	<!-- //main -->
 </div>
 <!-- //wrap -->
-
-<script src="./src/libs/jquery-3.3.1.min.js"></script>
-
 <script src="./src/js/plugin/index.js"></script>
 <script src="./src/js/plugin/blockScroll.js"></script>
-<script src="./src/js/plugin/transform.js"></script>
 <script src="./src/js/plugin/swipe.js"></script>
 
 <script src="./src/js/Initia.js"></script>
 <script>
 	window.addEventListener('DOMContentLoaded', e => {
 		window.Initia.init()
-		// play()
-		function play () {
-			$(window).on('scroll', function(){
-				var headerHeight = $('header').height();
-				var winScrollTop = $(window).scrollTop();
-				var st = winScrollTop + headerHeight;
-				var $container = $('.container');
-				var sec02Top = $('.section02').offset().top;
-				var sec04Top = $('.section04').offset().top;
-				var sec05Top = $('.section05').offset().top;
-				var sec06Top = $('.section06').offset().top;
-				var sec07Top = $('.section07').offset().top;
-				var sec08Top = $('.section08').offset().top;
-				
-				// section04 영역에서만 video fixed
-				if((sec04Top - 200) <= st && st < (sec05Top - 400)) {
-					$('.section04 .video-box').css('opacity', 1);
-					$('.section04').addClass('fixed');
-				} else {
-					$('.section04 .video-box').css('opacity', 0);
-					setTimeout(function() {
-						$('.section04').removeClass('fixed');
-					}, 200);
-				}
-				
-				// section05 영역에서만 video fixed
-				if((sec05Top - 200) <= st && st < (sec06Top - 400)) {
-					$('.section05 .video-box').css('opacity', 1);
-					$('.section05').addClass('fixed');
-				} else {
-					$('.section05 .video-box').css('opacity', 0);
-					setTimeout(function() {
-						$('.section05').removeClass('fixed');
-					}, 200);
-				}
-				
-				// section06 영역에서만 video fixed
-				if(sec06Top <= st && st < (sec07Top - 500)) {
-					$('.section06 .video-box').css('opacity', 1);
-					$('.section06').addClass('fixed');
-				} else {
-					$('.section06 .video-box').css('opacity', 0);
-					setTimeout(function() {
-						$('.section06').removeClass('fixed');
-					}, 200);
-				}
-				
-				// 영상 재생 제어 (멈춰있다가 해당 영역 진입 시 play)
-				if((sec04Top - 300) <= st && st < (sec05Top - 300)) {
-					video05 = document.getElementById("video04");
-					$('.section04').addClass('play').siblings().removeClass('play');
-					video04.play();
-					$('.section').not('.play').find('video').get(0).currentTime = 0;
-					$('.section').not('.play').find('video').get(0).pause();
-				} else if((sec05Top - 300) <= st && st < (sec06Top - 300)) {
-					video05 = document.getElementById("video05");
-					$('.section05').addClass('play').siblings().removeClass('play');
-					video05.play();
-					$('.section').not('.play').find('video').get(0).currentTime = 0;
-					$('.section').not('.play').find('video').get(0).pause();
-				} else if((sec06Top - 300) <= st && st < (sec07Top - 300)) {
-					video06 = document.getElementById("video06");
-					$('.section06').addClass('play').siblings().removeClass('play');
-					video06.play();
-					$('.section').not('.play').find('video').get(0).currentTime = 0;
-					$('.section').not('.play').find('video').get(0).pause();
-				} else if((sec07Top - 100) <= st && st < (sec08Top - 300)) {
-					video07 = document.getElementById("video07");
-					$('.section07').addClass('play').siblings().removeClass('play');
-					video07.play();
-					$('.section').not('.play').find('video').get(0).currentTime = 0;
-					$('.section').not('.play').find('video').get(0).pause();
-				} else if(st < sec08Top) {
-					video08 = document.getElementById("video08");
-					$('.section08').addClass('play').siblings().removeClass('play');
-					video08.play();
-					$('.section').not('.play').find('video').get(0).currentTime = 0;
-					$('.section').not('.play').find('video').get(0).pause();
-				} else {
-					$('.section').removeClass('play');
-					$('.section').not('.play').find('video').get(0).currentTime = 0;
-					$('.section').not('.play').find('video').get(0).pause();
-				}
-			});
-			
-			// section04 video loop
-			document.getElementById("video04").addEventListener("timeupdate", function() {
-				video04 = document.getElementById("video04");
-				if (video04.currentTime > 11) {
-					$("#video04Src").attr("src", './src/video/video04.mp4#t=5.15');
-					video04.play();
-					video04.currentTime = 5.15;
-				}
-			});
-			
-			// section05 video loop
-			document.getElementById("video05").addEventListener("timeupdate", function() {
-				video05 = document.getElementById("video05");
-				if (video05.currentTime > 11) {
-					$("#video05Src").attr("src", './src/video/video05.mp4#t=5.2');
-					video05.play();
-					video05.currentTime = 5.2;
-				}
-			});
-			
-			// section06 video loop
-			document.getElementById("video06").addEventListener("timeupdate", function() {
-				video06 = document.getElementById("video06");
-				if (video06.currentTime > 11) {
-					$("#video06Src").attr("src", './src/video/video06.mp4#t=5.3');
-					video06.play();
-					video06.currentTime = 5.3;
-				}
-			});
-			
-			// section07 video loop
-			document.getElementById("video07").addEventListener("timeupdate", function() {
-				video07 = document.getElementById("video07");
-				if (video07.currentTime > 11) {
-					$("#video07Src").attr("src", './src/video/video07.mp4#t=5.3');
-					video07.play();
-					video07.currentTime = 5.3;
-				}
-			});
-			
-			// section08 video loop
-			document.getElementById("video08").addEventListener("timeupdate", function() {
-			video08 = document.getElementById("video08");
-			if (video08.currentTime > 11) {
-				$("#video08Src").attr("src", './src/video/video08.mp4#t=5.4');
-				video08.play();
-				video08.currentTime = 5.4;
-			}
-		});
-		
-		}
 	})
-
-	
-let test = function () {
-	
-	// AOS.init();
-	
-	// return
-
-	var scrollDir = 'down',
-		isSlide = false;
-		
-	// scroll up/down 시 slide 이동
-	function slide(scrollDir) {
-		if (isSlide) {
-			return;
-		}
-
-		if (scrollDir === 'up') {
-			swiper.slidePrev();
-		} else if (scrollDir === 'down') {
-			swiper.slideNext();
-		}
-	}
-
-	// scroll 시 up/down 체크
-	function setWheel() {
-		window.addEventListener('wheel', wheel, {
-			passive: false,
-		});
-
-		function wheel(e) {
-			var delta = e.deltaY;
-
-			if (!isSlide && Math.abs(delta) > 10) {
-				var _delta = e.deltaY;
-
-				if (_delta > 0) {
-					scrollDir = 'down';
-				} else {
-					scrollDir = 'up';
-				}
-
-				slide(scrollDir);
-			}
-		}
-	}
-
-	// section01 ~ 03 swiper
-	var swiper = new Swiper('.swiper', {
-		direction: 'vertical',
-		slidesPerView: '1',
-		preventInteractionOnTransition: true,
-		parallax: true,
-		speed: 700,
-		simulateTouch: false,
-		on: {
-			init: function() {
-				$('.motion').addClass('active');
-			},
-			activeIndexChange: function() {
-				$('.motion').removeClass('active');
-				setTimeout(function() {
-					$('.motion').addClass('active');
-				}, 100);
-			},
-			slideChange: function slideChange() {
-				isSlide = true;
-			},
-			transitionEnd: function transitionEnd() {
-				isSlide = false;
-			}
-		}
-    });
-
-	function activeHeightSet() {
-		var activeHt = $(window).height();
-		// eventActiveHt(activeHt);
-		scrollUp();
-	}
-
-	function scrollUp() {
-		$("body, html").stop(true).animate({
-			scrollTop: "0",
-		}, 1000);
-	}
-
-	// function eventActiveHt(activeHt) {
-	// 	$(".swiper-container").stop(true).animate({}, 100);
-	// }
-
-	swiper.on("slideChangeTransitionStart", activeHeightSet);
-
-	setWheel();
-
-	// motion (시안 motion)
-	// let $motion = document.getElementsByClassName('motion');
-	// let documentH = document.documentElement.clientHeight;
-	
-	// for (let key in $motion) {
-	// 	if ($motion[key].getBoundingClientRect) {
-	// 		let clientRect = $motion[key].getBoundingClientRect()
-	// 		if (documentH > clientRect.top + clientRect.height / 2) {
-	// 			$motion[key].classList.add('active')
-	// 		} else {
-	// 			$motion[key].classList.remove('active')
-	// 		}
-	// 	}
-	// }
-	
-	
-}
-
 </script>
 </body>
 </html>
