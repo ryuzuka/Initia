@@ -5,7 +5,9 @@ window.Initia = (function (_gsap) {
   let $scrollSection = document.querySelector('.section04')
   let $videoBox = document.querySelectorAll('section .video-box')
   let $topVideo = document.querySelector('#video01')
+  let $motion = document.querySelectorAll('.motion')
 
+  let documentH = document.documentElement.clientHeight
   let sectionY = []
   let scrollDir = ''
   let scrollTop = 0
@@ -15,12 +17,11 @@ window.Initia = (function (_gsap) {
   let isVideoSection = [false, false, false, false, false, false, false, false]
 
   function moveSlideSection (dir) {
-    /** 상단 슬라이드 **/
-    if (dir === 'up' && slideIndex === 0) return
-
+    if (slideIndex === 0 && dir === 'up') return
     if (isSlide) return
     isSlide = true
 
+    /** 상단 슬라이드 **/
     scrollDir = dir
     if (dir === 'down') {
       slideIndex++
@@ -56,6 +57,14 @@ window.Initia = (function (_gsap) {
             document.body.blockScroll('scroll')
           }, 100)
         }
+
+        if (scrollDir === 'up' && slideIndex === 2) {
+          /** 스크롤 -> 슬라이드 **/
+          $motion.forEach(el => {
+            if (el.closest('.swiper')) return
+            el.classList.remove('active')
+          })
+        }
       }
     })
   }
@@ -77,6 +86,14 @@ window.Initia = (function (_gsap) {
 
       slideIndex = 3
       moveSlideSection('up')
+
+      $videoBox.forEach((el, idx) => {
+        let $video = el.querySelector('video')
+        isVideoSection[idx] = false
+        _gsap.to($video.parentElement, 0.2, {opacity: 0, ease: Expo.easeOut, onComplete () {
+          $video.pause()
+        }})
+      })
 
     } else {
       /** 하단 스크롤 **/
@@ -108,6 +125,24 @@ window.Initia = (function (_gsap) {
         }
       }
     }
+    activeMotion(e.currentTarget.scrollY)
+  }
+
+  function activeMotion () {
+    $motion.forEach(el => {
+      if (!el.closest('.swiper')) {
+        if (el.getBoundingClientRect) {
+          let clientRect = el.getBoundingClientRect()
+          let isView = documentH > clientRect.top + clientRect.height / 2
+
+          if (isView) {
+            el.classList.add('active')
+          } else {
+            el.classList.remove('active')
+          }
+        }
+      }
+    })
   }
 
   function setSectionY () {
@@ -139,19 +174,24 @@ window.Initia = (function (_gsap) {
   }
 
   function activeVideoSection (index) {
+    isVideoSection = [false, false, false, false, false, false, false, false]
     $section.forEach(($sect, idx) => {
       let $video = $sect.querySelector('video')
       if (index === idx) {
-        $sect.querySelectorAll('.motion').forEach((el, idx) => {
-          setInterval(() => el.classList.add('active'), 150 * idx)
-        })
         if ($video) {
-          _gsap.to($video.parentElement, 1, {opacity: 1, ease: Cubic.easeInOut})
+          _gsap.to($video.parentElement, 0.5, {opacity: 1, ease: Cubic.easeOut})
           $video.play()
         }
-        isVideoSection[idx] = true
+        isVideoSection[index] = true
+      } else {
+        // if ($video) {
+        //   _gsap.to($video.parentElement, 1.0, {opacity: 0})
+        //   $video.pause()
+        //   $video.currentTime = 0
+        // }
       }
     })
+    console.log(isVideoSection)
   }
 
   return {
@@ -177,6 +217,8 @@ window.Initia = (function (_gsap) {
       })
 
       Array.from(document.getElementsByTagName('section')).forEach((el, idx) => {
+        if (!el.closest('.swiper')) return
+
         let $motion = el.getElementsByClassName('motion')
         if ($motion.length > 0) {
           let length = $motion.length

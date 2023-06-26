@@ -17,12 +17,15 @@ section {z-index:10; position:relative;}
 .txt-box span {display:inline-block;}
 .motion {opacity: 0}
 .motion.active {animation:fadeup 1s ease forwards;}
-.motion.delay01 {animation-delay:0.2s;}
-.motion.delay02 {animation-delay:0.4s;}
-.motion.delay03 {animation-delay:0.6s;}
-.motion.delay04 {animation-delay:0.8s;}
-.motion.delay05 {animation-delay:1s;}
-.motion.delay06 {animation-delay:1.2s;}
+.motion.delay01 {animation-delay:0.1s;}
+.motion.delay02 {animation-delay:0.2s;}
+.motion.delay03 {animation-delay:0.4s;}
+.motion.delay04 {animation-delay:0.5s;}
+.motion.delay05 {animation-delay:0.6s;}
+.motion.delay06 {animation-delay:0.7s;}
+.motion.delay07 {animation-delay:0.8s;}
+.motion.delay08 {animation-delay:0.9s;}
+.motion.delay09 {animation-delay:1s;}
 .video-box {position:absolute; top:0; left:calc(50% - 48rem); transition:opacity .3s;}
 .video-box video {width:96rem; margin:0 auto;}
 .video-box.fixed-video01 {overflow:hidden; position:fixed; top:12rem; left:auto; width:100%; max-width:1920px; text-align:center;}
