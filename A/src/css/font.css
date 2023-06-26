@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: "PilatWide";
+	src: local("PilatWide-Regular"),
+		url("../font/PilatCondensedTest-Thin.woff2") format("woff2"),
+		url("../font/PilatWide-Thin.ttf") format("truetype");
+	font-style:normal;
+	font-weight: 200;
+}
+@font-face {
+	font-family: "PilatWide";
+	src: local("PilatWide-Regular"),
+		url("../font/PilatExtendedTest-Light.woff2") format("woff2"),
+		url("../font/PilatWide-Light.ttf") format("truetype");
+	font-style:normal;
+	font-weight: 300;
+}
+@font-face {
+	font-family: "PilatWide";
+	src: local("PilatWide-Book"),
+		url("../font/PilatExtendedTest-Regular.woff2") format("woff2"),
+		url("../font/PilatWide-Regular.ttf") format("truetype");
+	font-style:normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: "PilatWide";
+	src: local("PilatWide-DemiBold"),
+		url("../font/PilatExtendedTest-Book.woff2") format("woff2"),
+		url("../font/PilatWide-Book.ttf") format("truetype");
+	font-style:normal;
+	font-weight: 500;
+}
+@font-face {
+	font-family: "PilatWide";
+	src: local("PilatWide-Bold"),
+		url("../font/PilatExtendedTest-Demi.woff2") format("woff2"),
+		url("../font/PilatWide-DemiBold.ttf") format("truetype");
+	font-style:normal;
+	font-weight: 600;
+}
+@font-face {
+	font-family: "PilatWide";
+	src: local("PilatWide-Bold"),
+		url("../font/PilatExtendedTest-Bold.woff2") format("woff2"),
+		url("../font/PilatWide-Bold.ttf") format("truetype");
+	font-style:normal;
+	font-weight: 700;
+}
+@font-face {
+	font-family: "PilatWide";
+	src: local("PilatWide-Bold"),
+		url("../font/PilatExtendedTest-Heavy.woff2") format("woff2"),
+		url("../font/PilatWide-Heavy.ttf") format("truetype");
+	font-style:normal;
+	font-weight: 800;
+}
+@font-face {
+	font-family: "PilatWide";
+	src: local("PilatWide-Bold"),
+		url("../font/PilatExtendedTest-Black.woff2") format("woff2"),
+		url("../font/PilatWide-Black.ttf") format("truetype");
+	font-style:normal;
+	font-weight: 900;
+}
+@font-face {
+	font-family: "Quicksand";
+	src: local("Quicksand-Regular"),
+		url("../font/Quicksand-Regular.woff2") format("woff2"),
+		url("../font/Quicksand-Regular.ttf") format("truetype");
+	font-style:normal;
+	font-weight: 400;
+}
