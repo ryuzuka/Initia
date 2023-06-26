@@ -25,7 +25,7 @@ section {z-index:10; position:relative;}
 .motion.delay06 {animation-delay:1.2s;}
 .video-box {position:absolute; top:0; left:calc(50% - 48rem); transition:opacity .3s;}
 .video-box video {width:96rem; margin:0 auto;}
-.video-box.fixed-video01 {overflow:hidden; position:fixed; top:0; left:auto; width:100%; max-width:1920px; text-align:center;}
+.video-box.fixed-video01 {overflow:hidden; position:fixed; top:12rem; left:auto; width:100%; max-width:1920px; text-align:center;}
 
 .section .video-box {opacity: 0}
 .section.fixed .video-box {position:fixed; top:0;}
@@ -35,34 +35,31 @@ section {z-index:10; position:relative;}
 .section07.fixed .video-box {right:50%; left:auto;}
 
 /* .swiper {height:100vh;} */
-.swiper section {display:flex; justify-content:center; align-items:end; width:100%; height:100vh; padding:0 0 40rem;}
+.swiper section {display:flex; justify-content:center; align-items:center; width:100%; height:100vh; padding-top:20%;}
 .swiper section span {opacity:0;}
 
-.swiper .section01 {/*padding:53rem 0 28rem;*/}
 .swiper .section01 .txt-box {text-align:center;}
 .swiper .section01 .txt-box h2 {font-size:4.6rem; font-weight:400; line-height:5.6rem;}
 
-.swiper .section02 {padding:13.5rem 0 20rem;/*padding:42rem 0 30rem;*/}
 .swiper .section02 .txt-box {text-align:center;}
 .swiper .section02 .txt-box h2 {padding-bottom:5.5rem; font-size:5.2rem; font-weight:500; line-height:7.2rem;}
 .swiper .section02 .txt-box p {color:#777; font-size:2rem; font-family:'Quicksand'; line-height:3.2rem;}
 .swiper .section02 .txt-box p + p {padding-top:4rem;}
 
-.swiper .section03 { /*padding:54rem 0 20rem;*/}
 .swiper .section03 .txt-box {text-align:center;}
 .swiper .section03 .txt-box h2 {font-size:5.2rem; font-weight:500; line-height:8rem;}
 .swiper .section03 .txt-box h2 span:nth-of-type(1) {animation-delay:.3s;}
 .swiper .section03 .txt-box h2 span:nth-of-type(2) {animation-delay:.6s;}
 
-.section04 {padding:50rem 0 10rem 20rem;}
-.section04 .video-box {top:0; left:auto; right:0;}
+.section04 {padding:15rem 0 40rem 20rem;}
+.section04 .video-box {top:5rem; left:auto; right:0;}
 .section04 .txt-box h2 {font-size:4rem; line-height:5.2rem;}
 .section04 .txt-box > ul {padding-top:2rem;}
 .section04 .txt-box h3 {padding-top:10rem; font-size:2.8rem; font-weight:400; line-height:3.6rem;}
 .section04 .txt-box p {padding-top:6rem; color:#777; font-size:2rem; font-family:'Quicksand'; line-height:3.2rem;}
 .section04 .txt-box p + p {padding-top:4rem;}
 
-.section05 {padding:50rem 0 20rem 86rem;}
+.section05 {padding:15rem 0 40rem 86rem;}
 .section05 .video-box {left:0;}
 .section05 .txt-box > ul {padding-top:4rem;}
 .section05 .txt-box h2 {font-size:4rem; line-height:5.2rem; background-color:#000;}
@@ -71,15 +68,15 @@ section {z-index:10; position:relative;}
 .section05 .txt-box h3 {padding-top:8rem; font-size:2.8rem; font-weight:400; line-height:4rem;}
 .section05 .txt-box p {padding-top:4rem; color:#777; font-size:2rem; line-height:3.2rem;}
 
-.section06 {padding:30em 0 13rem 22rem;}
+.section06 {padding:15rem 0 40rem 22rem;}
 .section06 .video-box {left:auto; right:0;}
 .section06 .txt-box h2 {padding-bottom:6rem; font-size:4rem; line-height:5.6rem;}
 .section06 .txt-box ul > li > div {display:flex;}
 .section06 .txt-box h3 {flex-shrink:0; width:47rem; padding-top:10rem; font-size:2.8rem; font-weight:300;}
 .section06 .txt-box p {padding-top:10rem; color:#777; font-size:2rem; font-family:'Quicksand'; line-height:3.2rem;}
 
-.section07 {padding:30rem 0 12rem 22rem;}
-.section07 .video-box {top:12rem; left:0;}
+.section07 {padding:20rem 0 40rem 22rem;}
+.section07 .video-box {left:0;}
 .section07 .txt-box {padding:1.5rem 0 0 75rem;}
 .section07 .txt-box h2 {position:absolute; top:0; left:0; font-size:4rem; line-height:5.6rem;}
 .section07 .txt-box h3 {font-size:2.8rem; font-weight:300; line-height:5.6rem;}
@@ -87,8 +84,8 @@ section {z-index:10; position:relative;}
 .section07 .txt-box p {padding-top:3rem; color:#777; font-size:2rem; font-family:'Quicksand'; line-height:3.2rem;}
 .section07 .txt-box p + p {padding-top:4rem;}
 
-.section08 {padding:31rem 0 35rem 22rem;}
-.section08 .video-box {top:10rem; left:auto; right:0;}
+.section08 {padding:18rem 0 35rem 22rem;}
+.section08 .video-box {left:auto; right:0;}
 .section08 .txt-box h2 {font-size:4rem; line-height:5.6rem;}
 .section08 .txt-box p {padding-top:10rem; color:#777; font-size:2rem; font-family:'Quicksand'; line-height:3.2rem;}
 .section08 .txt-box p + p {padding-top:4rem;}
@@ -96,7 +93,7 @@ section {z-index:10; position:relative;}
 @keyframes fadeup {
 	0% {
 		opacity:0;
-		transform:translate3d(0,100px,0);
+		transform:translate3d(0,200px,0);
 		transition-delay:0s;
 	}
 	100% {
