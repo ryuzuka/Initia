@@ -191,7 +191,6 @@ window.Initia = (function (_gsap) {
         // }
       }
     })
-    console.log(isVideoSection)
   }
 
   return {
