@@ -30,7 +30,6 @@ section {z-index:10; position:relative;}
 .video-box video {width:96rem; margin:0 auto;}
 .video-box.fixed-video01 {overflow:hidden; position:fixed; top:12rem; left:auto; width:100%; max-width:1920px; text-align:center;}
 
-.section .video-box {opacity: 0}
 .section.fixed .video-box {position:fixed; top:0;}
 .section04.fixed .video-box,
 .section06.fixed .video-box {left:50%; right:auto;}

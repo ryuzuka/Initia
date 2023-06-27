@@ -42,27 +42,37 @@ window.Initia = (function (_gsap) {
 
     _gsap.to('html, body', 0.8, {
       scrollTop: sectionY[slideIndex],
-      ease: Cubic.easeInOut,
+      ease: Cubic.easeOut,
       onComplete () {
         activeSlide(slideIndex)
+
         if (slideIndex >= slideLength) {
           /** 슬라이드 -> 스크롤 **/
 
-          isSlide = false
           window.removeEventListener('wheel', onWheel)
           window.addEventListener('scroll', onScroll)
           window.dispatchEvent(new Event('scroll'))
           setTimeout(() => {
             // 스크롤 튐 방지
+            isSlide = false
             document.body.blockScroll('scroll')
-          }, 100)
+            document.body.bodySwipe('off')
+          }, 1000)
         }
 
         if (scrollDir === 'up' && slideIndex === 2) {
           /** 스크롤 -> 슬라이드 **/
+
           $motion.forEach(el => {
             if (el.closest('.swiper')) return
             el.classList.remove('active')
+          })
+
+          isVideoSection = [false, false, false, false, false, false, false, false]
+          $videoBox.forEach(el => {
+            let $video = el.querySelector('video')
+            $video.pause()
+            $video.load()
           })
         }
       }
@@ -75,7 +85,7 @@ window.Initia = (function (_gsap) {
     scrollTop = e.currentTarget.scrollY
     let st = Math.floor(e.currentTarget.scrollY + ((dir === 'down') ? (window.innerHeight / 1.6) : 0))
 
-    if (st < $scrollSection.offsetTop) {
+    if (st < parseInt($scrollSection.offsetTop)) {
       /** 스크롤 -> 슬라이드 **/
 
       document.body.blockScroll('block')
@@ -85,15 +95,6 @@ window.Initia = (function (_gsap) {
 
       slideIndex = 3
       moveSlide('up')
-
-      $videoBox.forEach((el, idx) => {
-        let $video = el.querySelector('video')
-        isVideoSection[idx] = false
-        _gsap.to($video.parentElement, 0.2, {opacity: 0, ease: Expo.easeOut, onComplete () {
-          $video.pause()
-          $video.load()
-        }})
-      })
 
     } else {
       /** 하단 스크롤 **/
@@ -117,7 +118,7 @@ window.Initia = (function (_gsap) {
           slideIndex = 6
           activeSection(slideIndex)
         }
-      } else if (sectionY[7] <= st && scrollTop + window.innerHeight > document.body.offsetHeight - 100) {
+      } else if (sectionY[7] <= st) {
         if (!isVideoSection[7]) {
           slideIndex = 7
           activeSection(slideIndex)
@@ -138,7 +139,7 @@ window.Initia = (function (_gsap) {
       if (!el.closest('.swiper')) {
         if (el.getBoundingClientRect) {
           let clientRect = el.getBoundingClientRect()
-          let isView = documentH > clientRect.top + clientRect.height / 2
+          let isView = documentH > clientRect.top + clientRect.height / 3
 
           el.classList[isView ? 'add' : 'remove']('active')
         }
@@ -151,32 +152,28 @@ window.Initia = (function (_gsap) {
     $swiperSection.forEach((el, idx) => {
       if (index === idx) {
         el.querySelectorAll('.motion').forEach(el=> {
-          el.classList.add('active')
+          if (!el.classList.contains('active')) {
+            el.classList.add('active')
+          }
         })
       } else {
         el.querySelectorAll('.motion').forEach(el => {
-          el.classList.remove('active')
+          if (el.classList.contains('active')) {
+            el.classList.remove('active')
+          }
         })
       }
     })
   }
 
   function activeSection (index) {
-    isVideoSection = [false, false, false, false, false, false, false, false]
     $section.forEach(($sect, idx) => {
       let $video = $sect.querySelector('video')
       if (index === idx) {
         if ($video) {
-          _gsap.to($video.parentElement, 0.5, {opacity: 1, ease: Cubic.easeOut})
           $video.play()
         }
         isVideoSection[index] = true
-      } else {
-        // if ($video) {
-        //   _gsap.to($video.parentElement, 1.0, {opacity: 0})
-        //   $video.pause()
-        //   $video.currentTime = 0
-        // }
       }
     })
   }
@@ -197,8 +194,7 @@ window.Initia = (function (_gsap) {
       this.setSwipe()
       this.setVideo()
 
-      window.dispatchEvent(new CustomEvent('resize', {detail: {}}))
-
+      setSectionY()
       activeSlide(slideIndex)
     },
     setEvent () {
@@ -227,7 +223,6 @@ window.Initia = (function (_gsap) {
         down () {},
         move () {},
         up (dir) {
-          // if (isSlide) return
           moveSlide(dir > 0 ? 'down' : 'up')
         }
       })
@@ -238,9 +233,10 @@ window.Initia = (function (_gsap) {
         let $video = el.querySelectorAll('video')
         $video.forEach(videoEl => {
           videoEl.addEventListener('ended', e => {
-            e.target.pause()
-            e.target.currentTime = 6
-            e.target.play()
+            let $video = e.target
+            $video.pause()
+            $video.currentTime = 6
+            $video.play()
           })
         })
       })
