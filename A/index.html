@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Initia 0618</title>
+	<title>Initia A 0627</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no">
@@ -184,7 +184,7 @@
 		<section class="section section06">
 			<div class="video-box">
 				<video id="video06" loop muted playsinline>
-					<source id="video06Src" src="./src/video/video06.mp4#t=5.3" type="video/mp4">
+					<source id="video06Src" src="./src/video/video06.mp4" type="video/mp4">
 				</video>
 			</div>
 
@@ -382,7 +382,7 @@
 			video06.play();
 			$('.section').not('.play').find('video').get(0).currentTime = 0;
 			$('.section').not('.play').find('video').get(0).pause();
-		} else if((sec07Top - 100) <= st && st < (sec08Top - 300)) {
+		} else if((sec07Top - 700) <= st && st < (sec08Top - 300)) {
 			video07 = document.getElementById("video07");
 			$('.section07').addClass('play').siblings().removeClass('play');
 			video07.play();
