@@ -49,8 +49,10 @@ iframe {border:0;}
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none; margin:0;}
 
+@media (min-width:781px) and (max-width:1920px){
+	html, body, button, input, select, textarea {font-size:0.5208vw;}
+}
 
-
-@media (min-width:769px) and (max-width:1920px){
-    html, body, button, input, select, textarea {font-size:0.5208vw;}
+@media (max-width:780px) {
+	html, body, button, input, select, textarea {font-size:2.5641vw;}
 }
