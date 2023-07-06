@@ -144,8 +144,10 @@ window.Initia = (_gsap => {
 			window.addEventListener('scroll', onScroll)
 			window.addEventListener('resize', onResize)
 
-			window.dispatchEvent(new Event('resize'))
-			window.dispatchEvent(new Event('scroll'))
+			setTimeout(() => {
+				window.dispatchEvent(new Event('resize'))
+				window.dispatchEvent(new Event('scroll'))
+			}, 100)
 		},
 		setVideo () {
 			$initia.querySelectorAll('section').forEach((el, index) => {
