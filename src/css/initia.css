@@ -6,7 +6,7 @@ body {overflow-x:hidden; background-color:#000;}
 #initia-wrap {width:100%; max-width:1920px; margin:0 auto;}
 
 /* header */
-header {z-index:1000; position:fixed; width:100%; max-width:1920px; background-color:#000;}
+header {z-index:1000; position:fixed; width:100%; max-width:1920px}
 header h1 {width:12.6rem; margin:4rem 0 4rem 7rem;}
 
 /* container */
@@ -18,6 +18,8 @@ section .txt-box {position:relative;}
 section .txt-box span {display:inline-block;}
 section .animate {animation:animate 2s ease-in-out forwards;}
 section .fadeup > div {animation:fadeup .5s ease forwards;}
+section .motion {opacity: 0}
+section .motion.active {animation:fadeup 1.5s ease-in-out forwards;}
 
 .section04.fixed .video-box,
 .section05.fixed .video-box,
