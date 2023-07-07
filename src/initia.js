@@ -63,34 +63,41 @@ window.Initia = (_gsap => {
 			$topVideo.closest('section').querySelectorAll('span').forEach(el => el.classList.remove('animate'))
 		}
 
-		if (sectionY[3] <= st && st <= sectionY[4]) {
+		if (sectionY[0] <= st && st <= sectionY[3]) {
+			sectionIndex = 0
+		} else if (sectionY[3] <= st && st <= sectionY[4]) {
+			sectionIndex = 3
 			if (!isVideo[3]) {
-				sectionIndex = 3
 				activeSection(sectionIndex)
 			}
 		} else if (sectionY[4] <= st && st <= sectionY[5]) {
+			sectionIndex = 4
 			if (!isVideo[4]) {
-				sectionIndex = 4
 				activeSection(sectionIndex)
 			}
 		} else if (sectionY[5] <= st && st <= sectionY[6]) {
+			sectionIndex = 5
 			if (!isVideo[5]) {
-				sectionIndex = 5
 				activeSection(sectionIndex)
 			}
 		} else if (sectionY[6] <= st && st <= sectionY[7]) {
+			sectionIndex = 6
 			if (!isVideo[6]) {
-				sectionIndex = 6
 				activeSection(sectionIndex)
 			}
 		} else if (sectionY[7] <= st) {
+			sectionIndex = 7
 			if (!isVideo[7]) {
-				sectionIndex = 7
 				activeSection(sectionIndex)
 			}
-		} else {
-			sectionIndex = 0
 		}
+		if (scrollTop + window.innerHeight + headerHeight > document.body.scrollHeight) {
+			sectionIndex = 7
+			if (!isVideo[7]) {
+				activeSection(sectionIndex)
+			}
+		}
+
 		activeMotion()
 	}
 
@@ -102,6 +109,7 @@ window.Initia = (_gsap => {
 					isVideo[idx] = true
 					$video['play']()
 				}
+			} else {
 			}
 		})
 	}
